@@ -5,8 +5,9 @@ import {
   InformationCircleIcon,
   ServerStackIcon,
   RectangleStackIcon,
+  ShoppingBagIcon, 
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications } from "@/pages/dashboard";
+import { Home, Profile, Tables, Notifications, Shop } from "@/pages/dashboard"; // Import the Shop page
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -22,6 +23,12 @@ export const routes = [
         name: "dashboard",
         path: "/home",
         element: <Home />,
+      },
+      {
+        icon: <ShoppingBagIcon {...icon} />, // Icon for the Shop page
+        name: "shop",
+        path: "/shop",
+        element: <Shop />, // Element for the Shop page
       },
       {
         icon: <UserCircleIcon {...icon} />,
