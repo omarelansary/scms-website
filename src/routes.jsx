@@ -6,8 +6,9 @@ import {
   ServerStackIcon,
   RectangleStackIcon,
   ShoppingBagIcon, 
+  ShoppingCartIcon, 
 } from "@heroicons/react/24/solid";
-import { Home, Profile, Tables, Notifications, Shop } from "@/pages/dashboard"; // Import the Shop page
+import { Home, Profile, Tables, Notifications, Shop, Cart } from "@/pages/dashboard"; // Import the Shop page
 import { SignIn, SignUp } from "@/pages/auth";
 
 const icon = {
@@ -25,10 +26,16 @@ export const routes = [
         element: <Home />,
       },
       {
-        icon: <ShoppingBagIcon {...icon} />, // Icon for the Shop page
+        icon: <ShoppingBagIcon {...icon} />, 
         name: "shop",
         path: "/shop",
-        element: <Shop />, // Element for the Shop page
+        element: <Shop />, 
+      },
+      {
+        icon: <ShoppingCartIcon {...icon} />, 
+        name: "cart",
+        path: "/cart",
+        element: <Cart />,
       },
       {
         icon: <UserCircleIcon {...icon} />,

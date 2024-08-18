@@ -1,4 +1,4 @@
-import React from 'react';
+import React , { useContext }  from 'react';
 import {
   Card,
   CardBody,
@@ -22,7 +22,9 @@ import {
 import { Link } from "react-router-dom";
 import { ProfileInfoCard, MessageCard } from "@/widgets/cards";
 import { platformSettingsData, productsData, projectsData } from "@/data";
+import { ShopContext } from "../../context/shop-context";
 export function Shop() {
+  const { addToCart, cartItems } = useContext(ShopContext);
   return (<div className="px-4 pb-4">
   <Typography variant="h6" color="blue-gray" className="mb-2">
     Projects
@@ -35,7 +37,7 @@ export function Shop() {
   </Typography>
   <div className="mt-6 grid grid-cols-1 gap-12 md:grid-cols-2 xl:grid-cols-4">
     {productsData.map(
-      ({ url, name, price, category}) => (
+      ({ id,url, name, price, category}) => (
         <Card key={name} color="transparent" shadow={false}>
           <CardHeader
             floated={false}
@@ -63,17 +65,16 @@ export function Shop() {
               {name}
             </Typography>
             <Typography
-                        variant="medium"
+                        variant="paragraph"
                         className="flex justify-center font-normal text-blue-gray-500"
                       >
                         {price} LE
                       </Typography>
           </CardBody>
           <CardFooter className="mt-6 flex justify-center items-center py-0 px-1">
-            <Button variant="outlined" size="sm">
-                  Add To Cart
+            <Button variant="outlined" size="sm" onClick={() => addToCart(id)}>
+                  Add To Cart {cartItems[id] > 0 && <> ({cartItems[id]})</>}
             </Button>
-
           </CardFooter>
         </Card>
       )
