@@ -43,8 +43,8 @@ export const ShopContextProvider = (props) => {
       "orderStatus": "ordered",
       "orderTotalAmount": totalAmount,
       "ordererName": name,
-      "ordererAddress": email,
-      "ordererEmail": address,
+      "ordererAddress": address,
+      "ordererEmail": email,
       "orderItems": {cartItems},
     }
 
