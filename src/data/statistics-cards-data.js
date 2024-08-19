@@ -2,8 +2,7 @@ import {
   ChartBarIcon,
 } from "@heroicons/react/24/solid";
 import {TodaySales} from "../components/sales-statistics";
-let revenue =TodaySales();
-let prev =0;
+let [revenue,prev] =TodaySales();
 export const statisticsCardsData = [
   {
     color: "gray",
