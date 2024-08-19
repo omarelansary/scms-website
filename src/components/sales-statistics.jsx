@@ -3,7 +3,7 @@ import productsData from "../data/products-data";
 import {ShopContext} from "../context/shop-context";
 
 
-const getOrdersFromLocalStorage = () => {
+export const getOrdersFromLocalStorage = () => {
   const orders = localStorage.getItem('orders');
   if (orders) {
     return JSON.parse(orders);

@@ -15,21 +15,21 @@ export const productsData = [
     },
     {
         id: 3,
-        name: 'Canon Camera',
+        name: 'Camera',
         price: 65000,
         category:'Cameras',
         url: '../../public/img/3.png'
     },
     {
         id: 4,
-        name: 'LED Strip Light',
+        name: 'LED',
         price: 500,
         category:'Decor',
         url: '../../public/img/4.png'
     },
     {
         id: 5,
-        name: 'DELL Inspiron',
+        name: 'DELL',
         price: 27000,
         category:'Laptops',
         url: '../../public/img/5.png'
