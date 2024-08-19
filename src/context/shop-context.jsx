@@ -1,7 +1,9 @@
 import { createContext, useEffect, useState } from "react";
 import { productsData } from "@/data";
 
+console.error("I AM LOGGING 1")
 export const ShopContext = createContext(null);
+console.error("I AM LOGGING 2")
 
 const getDefaultCart = () => {
   let cart = {};
@@ -10,8 +12,9 @@ const getDefaultCart = () => {
   }
   return cart;
 };
-
+console.error("I AM LOGGING 2.1")
 export const ShopContextProvider = (props) => {
+  console.error("I AM LOGGING 3")
   const [cartItems, setCartItems] = useState(getDefaultCart());
   
   const getTotalCartAmount = () => {
@@ -106,7 +109,7 @@ export const ShopContextProvider = (props) => {
     getCartItemsCount,
     checkout,
   };
-
+  console.error("I AM LOGGING 4")
   return (
     <ShopContext.Provider value={contextValue}>
       {props.children}

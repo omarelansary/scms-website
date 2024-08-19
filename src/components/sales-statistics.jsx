@@ -3,11 +3,11 @@ import productsData from "../data/products-data";
 import {ShopContext} from "../context/shop-context";
 
 export const TodaySales = () => {
-  // const { addToCart } = useContext(ShopContext);
+  const { getOrdersFromLocalStorage } = useContext(ShopContext);
   // const OrdersList = getOrdersFromLocalStorage();
   // const dayStats = sumDayOrders(OrdersList,2);
   // return [dayStats[0],dayStats[1]];
-  return 5;
+  return 10;
 };
 
 // const eachProductSales = (Orders) => {
