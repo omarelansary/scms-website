@@ -1,5 +1,4 @@
-import React from 'react';
- export const productsData = [
+export const productsData = [
     {
         id: 1,
         name: 'IPhone',
@@ -28,4 +27,12 @@ import React from 'react';
         category:'Decor',
         url: '../../public/img/4.png'
     },
+    {
+        id: 5,
+        name: 'DELL Inspiron',
+        price: 27000,
+        category:'Laptops',
+        url: '../../public/img/5.png'
+    },
  ]
+ export default productsData;

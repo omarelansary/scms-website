@@ -38,15 +38,15 @@ return (
 <div className="cart">
    <Typography
       variant="h3"
-      className="flex justify-center font-normal text-balck-gray-500"
+      className="flex justify-center font-normal text-balck-gray-500 mb-6"
       >
       Your Cart Items
    </Typography>
-   <div className="cart">
+   <div className="cart flex flex-col items-center">
       {productsData.map((product) => {
       if (cartItems[product.id] !== 0) {
       return   (    
-      <Card key={product.name} color="transparent" shadow={false}>
+      <Card className="px-2 mb-4 max-w-md" key={product.name} color="transparent" shadow={false}>
          <CardHeader
             floated={false}
             color="gray"
