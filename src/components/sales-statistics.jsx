@@ -24,7 +24,8 @@ const removeOrderFromLocalStorage = (orderID) => {
 };
 
 
-const eachProductSales = (Orders) => {
+export const eachProductSales = () => {
+  let Orders = getOrdersFromLocalStorage();
   const resultMap = new Map();
 
   Orders.forEach((order) => {
@@ -41,16 +42,20 @@ const eachProductSales = (Orders) => {
     productsData.map((product) => [product.id, product.name])
   );
 
-  const namedMap = new Map();
+  const keysArray = [];
+  const valuesArray = [];
+
   for (const [key, value] of Object.entries(finalMap)) {
     const productName = idToNameMap.get(Number(key));
-    if (productName) {
-      namedMap.set(productName, value);
+    if (productName && value !== 0) {
+      keysArray.push(productName);
+      valuesArray.push(value);
     }
   }
 
-  return namedMap;
+  return { keysArray, valuesArray };
 };
+
 
 const sumTotalOrders = (Orders) => {
   return Orders.reduce((total, order) => {
@@ -68,7 +73,17 @@ const sumDayOrders = (Orders, days) => {
       }
       const today = new Date();
       today.setDate(today.getDate() - i);
-      const formattedDate = today.toISOString().split('T')[0];
+
+      let formattedDate;
+
+      if (days <= 7) {
+        formattedDate = today.toLocaleDateString('en-US', { weekday: 'short' });
+      } else if (days > 28) {
+        formattedDate = today.toLocaleDateString('en-US', { month: 'short'}); // e.g., "Aug 2024"
+      } else {
+        formattedDate = today.toLocaleDateString('en-US', { weekday: 'short', day: 'numeric' }); // e.g., "Aug 19"
+      }
+
       dateSales[i] = formattedDate;
     }
   });
@@ -103,4 +118,10 @@ export const TodaySales = () => {
   return [dayStats[0],dayStats[1]];
 };
 
-export default TodaySales;
+export const salesPerPeriod = (days) => {
+  const OrdersList = getOrdersFromLocalStorage();
+  const {dateSales,totalSales} = sumDayOrders(OrdersList,days);
+  const dateSalesReversed=dateSales.slice().reverse()
+  const totalSalesReversed=totalSales.slice().reverse()
+  return {dateSalesReversed,totalSalesReversed} ;
+}

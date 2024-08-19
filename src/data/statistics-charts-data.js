@@ -1,12 +1,15 @@
 import { chartsConfig } from "@/configs";
-
+import {eachProductSales,salesPerPeriod} from "../components/sales-statistics";
+let { keysArray: itemsSOldNames, valuesArray: itemsSoldQtn } = eachProductSales();
+let {dateSalesReversed:day,totalSalesReversed:daySales}= salesPerPeriod(7)
+let {dateSalesReversed:month,totalSalesReversed:monthSales}= salesPerPeriod(19)
 const websiteViewsChart = {
   type: "bar",
   height: 220,
   series: [
     {
       name: "Views",
-      data: [50, 20, 10, 22, 50, 10, 40],
+      data: itemsSoldQtn,
     },
   ],
   options: {
@@ -20,7 +23,12 @@ const websiteViewsChart = {
     },
     xaxis: {
       ...chartsConfig.xaxis,
-      categories: ["M", "T", "W", "T", "F", "S", "S"],
+      categories: itemsSOldNames,
+    },
+    yaxis: {
+      ...chartsConfig.yaxis,
+      min: 0,
+      tickAmount: Math.max(...itemsSoldQtn),
     },
   },
 };
@@ -31,7 +39,7 @@ const dailySalesChart = {
   series: [
     {
       name: "Sales",
-      data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+      data: daySales,
     },
   ],
   options: {
@@ -45,17 +53,7 @@ const dailySalesChart = {
     },
     xaxis: {
       ...chartsConfig.xaxis,
-      categories: [
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      categories: day,
     },
   },
 };
@@ -66,7 +64,7 @@ const completedTaskChart = {
   series: [
     {
       name: "Sales",
-      data: [50, 40, 300, 320, 500, 350, 200, 230, 500],
+      data: monthSales,
     },
   ],
   options: {
@@ -80,17 +78,7 @@ const completedTaskChart = {
     },
     xaxis: {
       ...chartsConfig.xaxis,
-      categories: [
-        "Apr",
-        "May",
-        "Jun",
-        "Jul",
-        "Aug",
-        "Sep",
-        "Oct",
-        "Nov",
-        "Dec",
-      ],
+      categories: month,
     },
   },
 };
@@ -98,8 +86,8 @@ const completedTasksChart = {
   ...completedTaskChart,
   series: [
     {
-      name: "Tasks",
-      data: [50, 40, 300, 220, 500, 250, 400, 230, 500],
+      name: "Sales",
+      data: monthSales,
     },
   ],
 };
@@ -107,22 +95,22 @@ const completedTasksChart = {
 export const statisticsChartsData = [
   {
     color: "white",
-    title: "Website View",
-    description: "Last Campaign Performance",
-    footer: "campaign sent 2 days ago",
+    title: "Sales By Product",
+    description: "Quantity of each product sold",
+    footer: "just updated",
     chart: websiteViewsChart,
   },
   {
     color: "white",
     title: "Daily Sales",
-    description: "15% increase in today sales",
-    footer: "updated 4 min ago",
+    description: "Weekly sales day by day",
+    footer: "just updated",
     chart: dailySalesChart,
   },
   {
     color: "white",
-    title: "Completed Tasks",
-    description: "Last Campaign Performance",
+    title: "This Month Sales",
+    description: "AUG 2024 Sales",
     footer: "just updated",
     chart: completedTasksChart,
   },

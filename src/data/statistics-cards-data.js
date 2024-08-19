@@ -11,7 +11,7 @@ export const statisticsCardsData = [
     value: [revenue],
     footer: {
       color: "text-green-500",
-      value: "0",
+      value: [prev],
       label: "% than yesterday",
     },
   },
