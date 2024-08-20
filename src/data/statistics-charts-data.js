@@ -8,7 +8,7 @@ const websiteViewsChart = {
   height: 220,
   series: [
     {
-      name: "Views",
+      name: "Sales",
       data: itemsSoldQtn,
     },
   ],

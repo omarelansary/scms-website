@@ -90,7 +90,7 @@ export function Home() {
           <table className="w-full min-w-[640px] table-auto">
             <thead>
               <tr>
-                {["Order ID","Order Date", "Orderer Name", "Orderer Address", "Orderer Email", "Order Total", "Order Status", "Order Items"].map((el) => (
+                {["Order ID","Order Date", "Orderer Name", "Orderer Address", "Orderer Email", "Order Total LE", "Order Status", "Order Items"].map((el) => (
                   <th
                     key={el}
                     className="border-b border-blue-gray-50 py-3 px-1 text-left"

@@ -107,7 +107,7 @@ return (
    </div>
    {totalAmount > 0 ? (
    <div className="checkout p-6 bg-white shadow-md rounded-lg">
-      <p className="flex justify-center text-lg font-semibold mt-8 mb-12">Subtotal: ${totalAmount}</p>
+      <p className="flex justify-center text-lg font-semibold mt-8 mb-12">Subtotal: {totalAmount} LE</p>
       <div>
       <form className="mt-8 mb-2 mx-auto w-80 max-w-screen-lg lg:w-1/2" onSubmit={handleCheckout}>
           <div className="mb-1 flex flex-col gap-6">
