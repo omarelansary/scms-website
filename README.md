@@ -12,8 +12,13 @@
 2. Navigate to the root ./ directory of the product and run `npm install` or `yarn install` or `pnpm install` to install our local dependencies.
 3. Inside the SCMS-Website directory write `npm run dev` to start the website.
 
+### Website Images 
+* **Page 1: Dashboard Statistics and Chart** ![Dashboard](image.png)
+* **Page 1: Orders Table** ![Orders Table](image-3.png)
+* **Page 2: Shop** ![Shop](image-1.png)
+* **Page 3: Cart** ![Cart](image-2.png)
 
 ### Check out these videos:
-* **Website Tour:** (https://github.com/omarelansary/scms-website/SCMS_Webiste_Overview.mp4)
+* **Website Tour:** [[here](https://github.com/omarelansary/scms-website/SCMS_Webiste_Overview.mp4)]
 * **Responsiveness Demo:** [[here](https://github.com/omarelansary/scms-website/SCMS_Website_Responsivness.mp4)]
 
